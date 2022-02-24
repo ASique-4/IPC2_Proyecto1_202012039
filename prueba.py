@@ -1,13 +1,9 @@
 from graphviz import Graph
-from Patron import Patron
-class Matriz():
-    def __init__(self,f,c):
-        self.filas = f
-        self.columnas = c
 
-def llenar_matriz(cadena,columnas):
+def leer():
+    palabra = 'WBWBWWWB'
     c = Graph(name='child', node_attr={'shape': 'box','style': 'filled','fillcolor': 'black'})
-    palabra = list(cadena)
+    palabra = list(palabra)
     count = 0
     columnas = 4
     count_columnas = 0
@@ -32,7 +28,4 @@ def llenar_matriz(cadena,columnas):
         count += 1
     c.view()
 
-def cambiar_matriz(cadena1,cadena2,columnas,precio_flip,precio_slide):
-    palabra2 = list(cadena2)
-    palabra = list(cadena1)
-    
+leer()

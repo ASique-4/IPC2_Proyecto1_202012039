@@ -1,8 +1,9 @@
-
+from ListaCasillas import ListaCasillas
 class Patron():
     def __init__(self, cod, cadena):
         self.cod = cod
         self.cadena = cadena
+        self.casillas = ListaCasillas()
         self.siguiente = None
     
     def getCadena(self):
@@ -18,6 +19,13 @@ class Patron():
     
     def setCod(self, cod):
         self.cod = cod
+
+    def getCasillas(self):
+        return self.casillas
+    
+    
+    def setCasillas(self, casillas):
+        self.casillas = casillas
 
     def getSiguiente(self):
         return self.siguiente

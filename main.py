@@ -1,4 +1,8 @@
-import graphviz
+
+from graphviz import Graph
+from pyparsing import col
+from ListaCasillas import ListaCasillas
+from Matriz import Matriz
 from ListaPatrones import ListaPatrones
 from ListaPisos import ListaPisos
 import PySimpleGUI as sg
@@ -20,10 +24,41 @@ def elementTree(ruta):
                 lista_patrones = ListaPatrones()
                 for subsubchild in subchild:
                     if subsubchild.tag == 'patron':
-                        lista_patrones.insertLastPatron(subsubchild.attrib['codigo'], subsubchild.text)
+                        casillas = llenar_matriz(subsubchild.text,r[1].text)
+                        lista_patrones.insertLastPatron(subsubchild.attrib['codigo'], subsubchild.text,casillas)
                         count3 += 1
         lista_pisos.insertLast(r.attrib['nombre'], r[0].text, r[1].text, r[2].text, r[3].text,lista_patrones) 
 
+def llenar_matriz(cadena,columnas):
+    lista_casillas = ListaCasillas()
+    palabra = list(cadena)
+    count = 0
+    columnas = int(columnas)
+    count_fila = 0
+    count_columnas = 0
+    contador_resta = 0
+    while count < len(palabra):
+
+        if count_columnas >= columnas:
+            count_fila +=1
+            count_columnas = 0
+        if palabra[count] == 'B':
+            if count < columnas:
+                count_columnas += 1
+            else:
+                count_columnas += 1
+        if palabra[count] == 'W':
+            if count < columnas:
+                count_columnas += 1
+            else:
+                count_columnas += 1 
+
+        
+        lista_casillas.insertLastCasilla(palabra[count],count_columnas,count_fila)
+         
+        count += 1
+        
+    return lista_casillas
 
 
 def pedirNumeroEntero():
@@ -80,7 +115,6 @@ while not salir:
         print ("------------------------------------------------------")
     elif opcion == 3:
         print ("------------------------------------------------------")
-        #grafo = graphviz.Graph()
         
         print ("------------------------------------------------------")
     elif opcion == 4:

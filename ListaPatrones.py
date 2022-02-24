@@ -1,3 +1,4 @@
+from Casilla import Casilla
 from Patron import Patron
 class ListaPatrones():
     def __init__(self):
@@ -8,8 +9,9 @@ class ListaPatrones():
         #self.patron = Patron().getSiguiente()
     
     
-    def insertLastPatron(self, cod,cadena):
+    def insertLastPatron(self, cod,cadena,casillas):
         nuevo_Patron = Patron(cod,cadena)
+        nuevo_Patron.setCasillas(casillas)
         self.size += 1
         if self.primero is None:
             self.primero = nuevo_Patron
@@ -28,5 +30,5 @@ class ListaPatrones():
     def showPatrones(self):
         tmp = self.primero
         for i in range(self.size):
-            print(i, '- Codigo: ', tmp.getCod(), '- Cadena: ', tmp.getCadena())
+            print(i, '- Codigo: ', tmp.getCod(), '- Cadena: ', tmp.getCadena(), '- Casillas' ,tmp.getCasillas().showCasillas())
             tmp = tmp.getSiguiente()
