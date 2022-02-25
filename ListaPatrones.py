@@ -35,12 +35,10 @@ class ListaPatrones():
 
     def search_item(self, x):
         if self.primero is None:
-            print("List has no elements")
             return
         n = self.primero
         while n is not None:
             if n.getCod() == x:
-                print("Item found")
                 return n
             n = n.siguiente
         print("item not found")

@@ -1,7 +1,3 @@
-from turtle import color
-
-from numpy import column_stack
-
 
 class Casilla():
     def __init__(self,color,columna,fila):

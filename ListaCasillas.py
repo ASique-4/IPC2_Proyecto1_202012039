@@ -31,3 +31,16 @@ class ListaCasillas():
             print(i, '- color: ', tmp.getcolor(), '- fila: ', tmp.getfila(), '- columna: ', tmp.getcolumna())
             tmp = tmp.getSiguiente()
     
+    def search_item(self, x,y):
+        if self.primero is None:
+            return
+        n = self.primero
+        while n is not None:
+            if n.getfila() == y and n.getcolumna() == x:
+                print(x,y)
+                return n
+                
+            n = n.siguiente
+        print("item not found")
+        print(x,y)
+        return False

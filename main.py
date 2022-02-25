@@ -1,15 +1,12 @@
-
-from graphviz import Graph
-from pyparsing import col
-from ListaCasillas import ListaCasillas
 from Matriz import Matriz
+from ListaCasillas import ListaCasillas
 from ListaPatrones import ListaPatrones
 from ListaPisos import ListaPisos
 import PySimpleGUI as sg
 import xml.etree.ElementTree as ET
 
 lista_pisos = ListaPisos()
-datos_glob = ''
+datos_glob = 'pisos.xml'
 
 def elementTree(ruta):
 
@@ -104,7 +101,7 @@ while not salir:
     elif opcion == 2:
         print ("------------------------------------------------------")
         elementTree(datos_glob)
-        lista_pisos.search_item('ejemplo03').getPatrones().search_item('cod32').getCasillas().showCasillas()
+        Matriz.cambiar_matriz('ejemplo01','cod11','ejemplo01','cod12',lista_pisos)
         #lista_pisos.showPisos()
         print ("------------------------------------------------------")
     elif opcion == 3:
