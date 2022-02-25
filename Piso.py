@@ -38,7 +38,7 @@ class Piso():
         self.filas = Filas
 
     def getCostoF(self):
-        return self.filas
+        return self.flip_costo
     
     def setCostoF(self, Flip):
         self.flip_costo = Flip

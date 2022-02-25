@@ -23,12 +23,12 @@ class Matriz():
         posicion2 = lista_piso.search_item(nombre_piso2).getPatrones().search_item(nombre_patron2).getCasillas()
         while n is not None:
             
-            if x >= int(lista_piso.search_item(nombre_piso1).getColumnas()):
+            if x > int(lista_piso.search_item(nombre_piso1).getColumnas()):
                 y +=1
                 x = 1
             else:
                 if posicion1.search_item(x,y).getcolor() != posicion2.search_item(x,y).getcolor():
-                    if (y+1) <= int(lista_piso.search_item(nombre_piso1).getFilas()) and posicion1.search_item(x,y).getcolor() != posicion1.search_item(x,y+1).getcolor() and posicion1.search_item(x,y+1).getcolor() == posicion2.search_item(x,y).getcolor():
+                    if (y+1) <= int(lista_piso.search_item(nombre_piso1).getFilas()) and posicion1.search_item(x,y).getcolor() != posicion1.search_item(x,y+1).getcolor() and posicion1.search_item(x,y+1).getcolor() == posicion2.search_item(x,y).getcolor() and posicion1.search_item(x,y+1).getcolor() != posicion2.search_item(x,y+1).getcolor():
                             temp_color = posicion1.search_item(x,y).getcolor()
                             posicion1.search_item(x,y).setcolor(posicion1.search_item(x,y+1).getcolor()) 
                             posicion1.search_item(x,y+1).setcolor(temp_color)   
@@ -37,7 +37,7 @@ class Matriz():
                             x +=1
                             n = n.siguiente
                             continue
-                    elif (x+1) <= int(lista_piso.search_item(nombre_piso1).getColumnas()) and posicion1.search_item(x,y).getcolor() != posicion1.search_item(x+1,y).getcolor() and posicion1.search_item(x+1,y).getcolor() == posicion2.search_item(x,y).getcolor():
+                    elif (x+1) <= int(lista_piso.search_item(nombre_piso1).getColumnas()) and posicion1.search_item(x,y).getcolor() != posicion1.search_item(x+1,y).getcolor() and posicion1.search_item(x+1,y).getcolor() == posicion2.search_item(x,y).getcolor() and posicion1.search_item(x+1,y).getcolor() != posicion2.search_item(x+1,y).getcolor():
                             temp_color = posicion1.search_item(x,y).getcolor()
                             posicion1.search_item(x,y).setcolor(posicion1.search_item(x+1,y).getcolor())
                             posicion1.search_item(x+1,y).setcolor(temp_color)
@@ -46,7 +46,7 @@ class Matriz():
                             x +=1
                             n = n.siguiente
                             continue
-                    elif (y-1) <= int(lista_piso.search_item(nombre_piso1).getFilas()) and (y-1) > 0 and posicion1.search_item(x,y).getcolor() != posicion2.search_item(x,y-1).getcolor() and posicion1.search_item(x,y-1).getcolor() == posicion2.search_item(x,y).getcolor():
+                    elif (y-1) <= int(lista_piso.search_item(nombre_piso1).getFilas()) and (y-1) > 0 and posicion1.search_item(x,y).getcolor() != posicion2.search_item(x,y-1).getcolor() and posicion1.search_item(x,y-1).getcolor() == posicion2.search_item(x,y).getcolor() and posicion1.search_item(x,y-1).getcolor() != posicion2.search_item(x,y-1).getcolor():
                             temp_color = posicion1.search_item(x,y).getcolor()
                             posicion1.search_item(x,y).setcolor(posicion1.search_item(x,y-1).getcolor()) 
                             posicion1.search_item(x,y-1).setcolor(temp_color) 
@@ -55,7 +55,7 @@ class Matriz():
                             x +=1
                             n = n.siguiente
                             continue
-                    elif (x-1) <= int(lista_piso.search_item(nombre_piso1).getColumnas()) and (x-1) > 0 and posicion1.search_item(x,y).getcolor() != posicion2.search_item(x-1,y).getcolor() and posicion1.search_item(x-1,y).getcolor() == posicion2.search_item(x,y).getcolor():
+                    elif (x-1) <= int(lista_piso.search_item(nombre_piso1).getColumnas()) and (x-1) > 0 and posicion1.search_item(x,y).getcolor() != posicion2.search_item(x-1,y).getcolor() and posicion1.search_item(x-1,y).getcolor() == posicion2.search_item(x,y).getcolor() and posicion1.search_item(x-1,y).getcolor() != posicion2.search_item(x-1,y).getcolor():
                             temp_color = posicion1.search_item(x,y).getcolor()
                             posicion1.search_item(x,y).setcolor(posicion1.search_item(x-1,y).getcolor())   
                             posicion1.search_item(x-1,y).setcolor(temp_color)   
@@ -81,6 +81,17 @@ class Matriz():
                             continue          
                 x +=1
             n = n.siguiente
+            if n is None:
+                if posicion1.search_item(x,y).getcolor() == 'B':
+                    posicion1.search_item(x,y).setcolor('W') 
+                    contadorCostoF += 1 
+                    print('flip1')
+                    continue
+                elif posicion1.search_item(x,y).getcolor() == 'W':
+                    posicion1.search_item(x,y).setcolor('B') 
+                    contadorCostoF += 1 
+                    print('flip2')
+                    continue 
         print ("------------------------------------------------------")
         posicion1.showCasillas()
         print('Se gasto: ' + str(costoS*contadorCostoS) + ' de slide')

@@ -102,6 +102,7 @@ while not salir:
         print ("------------------------------------------------------")
         elementTree(datos_glob)
         Matriz.cambiar_matriz('ejemplo01','cod11','ejemplo01','cod12',lista_pisos)
+        #lista_pisos.search_item('ejemplo01').getPatrones().search_item('cod11').getCasillas().search_item(4,1)
         #lista_pisos.showPisos()
         print ("------------------------------------------------------")
     elif opcion == 3:
