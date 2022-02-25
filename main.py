@@ -28,30 +28,23 @@ def elementTree(ruta):
                         lista_patrones.insertLastPatron(subsubchild.attrib['codigo'], subsubchild.text,casillas)
                         count3 += 1
         lista_pisos.insertLast(r.attrib['nombre'], r[0].text, r[1].text, r[2].text, r[3].text,lista_patrones) 
+    
+
 
 def llenar_matriz(cadena,columnas):
     lista_casillas = ListaCasillas()
     palabra = list(cadena)
     count = 0
     columnas = int(columnas)
-    count_fila = 0
+    count_fila = 1
     count_columnas = 0
-    contador_resta = 0
     while count < len(palabra):
 
         if count_columnas >= columnas:
             count_fila +=1
-            count_columnas = 0
-        if palabra[count] == 'B':
-            if count < columnas:
-                count_columnas += 1
-            else:
-                count_columnas += 1
-        if palabra[count] == 'W':
-            if count < columnas:
-                count_columnas += 1
-            else:
-                count_columnas += 1 
+            count_columnas = 1
+        else:
+            count_columnas +=1
 
         
         lista_casillas.insertLastCasilla(palabra[count],count_columnas,count_fila)
@@ -111,7 +104,8 @@ while not salir:
     elif opcion == 2:
         print ("------------------------------------------------------")
         elementTree(datos_glob)
-        lista_pisos.showPisos()
+        lista_pisos.search_item('ejemplo03').getPatrones().search_item('cod32').getCasillas().showCasillas()
+        #lista_pisos.showPisos()
         print ("------------------------------------------------------")
     elif opcion == 3:
         print ("------------------------------------------------------")

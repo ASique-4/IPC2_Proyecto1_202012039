@@ -30,3 +30,4 @@ class ListaCasillas():
         for i in range(self.size):
             print(i, '- color: ', tmp.getcolor(), '- fila: ', tmp.getfila(), '- columna: ', tmp.getcolumna())
             tmp = tmp.getSiguiente()
+    

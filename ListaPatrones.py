@@ -32,3 +32,16 @@ class ListaPatrones():
         for i in range(self.size):
             print(i, '- Codigo: ', tmp.getCod(), '- Cadena: ', tmp.getCadena(), '- Casillas' ,tmp.getCasillas().showCasillas())
             tmp = tmp.getSiguiente()
+
+    def search_item(self, x):
+        if self.primero is None:
+            print("List has no elements")
+            return
+        n = self.primero
+        while n is not None:
+            if n.getCod() == x:
+                print("Item found")
+                return n
+            n = n.siguiente
+        print("item not found")
+        return False

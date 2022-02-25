@@ -30,3 +30,16 @@ class ListaPisos():
         for i in range(self.size):
             print(i, 'nombre: ', tmp.nombre, '- filas: ', tmp.getFilas(), '- columnas: ', tmp.getColumnas(), '- Costo Flip: ', tmp.getCostoF(), '- Costo Slide: ', tmp.getCostoS(), '- Patron 0: ', tmp.getPatrones().showPatrones())
             tmp = tmp.getSiguiente()
+    
+    def search_item(self, x):
+        if self.primero is None:
+            print("List has no elements")
+            return
+        n = self.primero
+        while n is not None:
+            if n.nombre == x:
+                print("Item found")
+                return n
+            n = n.siguiente
+        print("item not found")
+        return False
