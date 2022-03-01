@@ -29,9 +29,12 @@ class ListaPatrones():
 
     def showPatrones(self):
         tmp = self.primero
-        for i in range(self.size):
-            print(i, '- Codigo: ', tmp.getCod(), '- Cadena: ', tmp.getCadena(), '- Casillas' ,tmp.getCasillas().showCasillas())
+        print ("------------------------------------------------------")
+        while tmp is not None:
+            print('- Codigo: ', tmp.getCod(), '- Cadena: ', tmp.getCadena(), tmp.getCasillas().showCasillas())
+            print ("------------------------------------------------------")
             tmp = tmp.getSiguiente()
+        
 
     def search_item(self, x):
         if self.primero is None:

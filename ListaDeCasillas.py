@@ -27,8 +27,8 @@ class ListaCasillas():
 
     def showCasillas(self):
         tmp = self.primero
-        for i in range(self.size):
-            print(i, '- color: ', tmp.getcolor(), '- fila: ', tmp.getfila(), '- columna: ', tmp.getcolumna())
+        while tmp is not None:
+            print('- color: ', tmp.getcolor(), '- fila: ', tmp.getfila(), '- columna: ', tmp.getcolumna())
             tmp = tmp.getSiguiente()
     
     def search_item(self, x,y):

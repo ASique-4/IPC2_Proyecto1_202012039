@@ -1,5 +1,5 @@
 from Matriz import Matriz
-from ListaPatrones import ListaPatrones
+from ListaDePatrones import ListaPatrones
 
 class Piso(): 
     def __init__(self, nombre, r, c, f, s):

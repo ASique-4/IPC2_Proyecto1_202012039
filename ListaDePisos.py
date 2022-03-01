@@ -27,8 +27,8 @@ class ListaPisos():
 
     def showPisos(self):
         tmp = self.primero
-        for i in range(self.size):
-            print(i, 'nombre: ', tmp.nombre, '- filas: ', tmp.getFilas(), '- columnas: ', tmp.getColumnas(), '- Costo Flip: ', tmp.getCostoF(), '- Costo Slide: ', tmp.getCostoS(), '- Patron 0: ', tmp.getPatrones().showPatrones())
+        while tmp is not None:
+            print('Nombre: ', tmp.nombre, '- Filas: ', tmp.getFilas(), '- Columnas: ', tmp.getColumnas(), '- Costo Flip: ', tmp.getCostoF(), '- Costo Slide: ', tmp.getCostoS())
             tmp = tmp.getSiguiente()
     
     def search_item(self, x):

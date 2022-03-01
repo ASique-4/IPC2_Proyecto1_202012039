@@ -1,4 +1,4 @@
-from ListaCasillas import ListaCasillas
+from ListaDeCasillas import ListaCasillas
 class Patron():
     def __init__(self, cod, cadena):
         self.cod = cod

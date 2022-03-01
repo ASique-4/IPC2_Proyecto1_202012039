@@ -1,7 +1,7 @@
 from Matriz import Matriz
-from ListaCasillas import ListaCasillas
-from ListaPatrones import ListaPatrones
-from ListaPisos import ListaPisos
+from ListaDeCasillas import ListaCasillas
+from ListaDePatrones import ListaPatrones
+from ListaDePisos import ListaPisos
 import PySimpleGUI as sg
 import xml.etree.ElementTree as ET
 
@@ -30,12 +30,11 @@ def elementTree(ruta):
 
 def llenar_matriz(cadena,columnas):
     lista_casillas = ListaCasillas()
-    palabra = list(cadena)
     count = 0
     columnas = int(columnas)
     count_fila = 1
     count_columnas = 0
-    while count < len(palabra):
+    for n in cadena:
 
         if count_columnas >= columnas:
             count_fila +=1
@@ -44,12 +43,39 @@ def llenar_matriz(cadena,columnas):
             count_columnas +=1
 
         
-        lista_casillas.insertLastCasilla(palabra[count],count_columnas,count_fila)
+        lista_casillas.insertLastCasilla(n,count_columnas,count_fila)
          
         count += 1
         
     return lista_casillas
 
+def pedirPiso():
+    lista_pisos.showPisos()
+    correcto=False
+    while(not correcto):
+        cadena = lista_pisos.search_item(str(input("Introduce un piso: ")))
+        try:
+            if cadena != False:
+                correcto=True
+                return cadena
+            else:
+                print('Error, introduce un piso valido')
+        except ValueError:
+                print('Error, introduce un piso valido')
+
+def pedirPatron(piso):
+    lista_pisos.search_item(str(piso)).getPatrones().showPatrones()
+    correcto=False
+    while(not correcto):
+        cadena = lista_pisos.search_item(str(piso)).getPatrones().search_item(str(input("Introduce un patron: ")))
+        try:
+            if cadena != False:
+                correcto=True
+                return cadena
+            else:
+                print('Error, introduce un piso valido')
+        except ValueError:
+                print('Error, introduce un piso valido')
 
 def pedirNumeroEntero():
  
@@ -97,11 +123,15 @@ while not salir:
             print('Escogiste el archivo: ',Datos[0])
             datos_glob = Datos[0]
         window.close()
+        elementTree(datos_glob)
         print ("------------------------------------------------------")
     elif opcion == 2:
         print ("------------------------------------------------------")
-        elementTree(datos_glob)
-        Matriz.cambiar_matriz('ejemplo01','cod11','ejemplo01','cod12',lista_pisos)
+        
+        
+        piso = pedirPiso()
+        patron = pedirPatron(piso.nombre)
+        Matriz.cambiar_matriz(str(piso.nombre),str(piso.getPatrones().primero.getCod()),str(patron.getCod()),lista_pisos)
         #lista_pisos.search_item('ejemplo01').getPatrones().search_item('cod11').getCasillas().search_item(4,1)
         #lista_pisos.showPisos()
         print ("------------------------------------------------------")
