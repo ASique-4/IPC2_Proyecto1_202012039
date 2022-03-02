@@ -10,6 +10,7 @@ import xml.etree.ElementTree as ET
 lista_pisos = ListaPisos()
 datos_glob = ''
 Archivo_Cargado = False
+Primer_intento = False
 print ("------------------------------------------------------")
 
         
@@ -140,7 +141,9 @@ while not salir:
             patron = pedirPatron(piso.nombre)
             print ("Calculando la mejor manera de ordenar...")
             sleep(3)
+
             Matriz.cambiar_matriz(str(piso.nombre),str(piso.getPatrones().primero.getCod()),str(patron.getCod()),lista_pisos)
+            
             print ("Convirtiendo a PDF...")
             sleep(3)
             lista_pisos.search_item(str(piso.nombre)).getPatrones().search_item(str(patron.getCod())).getCasillas().imprimirEnPdf()

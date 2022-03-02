@@ -38,5 +38,4 @@ class ListaPatrones():
             if n.getCod() == x:
                 return n
             n = n.siguiente
-        print("Patron no encontrado")
         return False

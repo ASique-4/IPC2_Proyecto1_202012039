@@ -1,36 +1,39 @@
 
-from ListaDePatrones import ListaPatrones
 from time import sleep
+from ListaDeCasillas import ListaCasillas
 
 
 class Matriz():
     def __init__(self):
         pass
 
+    
+
     def cambiar_matriz(nombre_piso1,nombre_patron1,nombre_patron2,listaPisos):
         Modo1 = False 
         Modo2 = False
-        lista_patrones = ListaPatrones()
         lista_piso = listaPisos
         costoS = int(lista_piso.search_item(nombre_piso1).getCostoS())
         contadorCostoS1 = 0
         costoF = int(lista_piso.search_item(nombre_piso1).getCostoF())
         contadorCostoF1 = 0
         contadorCostoF2 = 0
+        
+        if lista_piso.search_item(nombre_piso1).getPatrones().search_item('NuevoPatron') == False:
+            lista_piso.search_item(nombre_piso1).getPatrones().insertLastPatron('NuevoPatron',lista_piso.search_item(nombre_piso1).getPatrones().search_item(nombre_patron2).getCadena(),llenar_matriz1(lista_piso.search_item(nombre_piso1).getPatrones().search_item(nombre_patron1).getCadena(),lista_piso.search_item(nombre_piso1).getColumnas(),lista_piso.search_item(nombre_piso1).getFilas()))
+        posicion1 = lista_piso.search_item(nombre_piso1).getPatrones().search_item('NuevoPatron').getCasillas()
+        posicion2 = lista_piso.search_item(nombre_piso1).getPatrones().search_item(nombre_patron2).getCasillas()
         print ("------------------------------------------------------")
         print ("Patron inicial")
 
-        lista_piso.search_item(nombre_piso1).getPatrones().search_item(nombre_patron1).getCasillas().showCasillas()
+        posicion1.showCasillas()
         sleep(2)
         print ("------------------------------------------------------")
         print ("Patron deseado")
-        lista_piso.search_item(nombre_piso1).getPatrones().search_item(nombre_patron2).getCasillas().showCasillas()
-        n = lista_piso.search_item(nombre_piso1).getPatrones().search_item(nombre_patron1).getCasillas().primero
+        posicion2.showCasillas()
+        n = lista_piso.search_item(nombre_piso1).getPatrones().search_item('NuevoPatron').getCasillas().primero
         x = 1
         y = 1
-        lista_piso.search_item(nombre_piso1).getPatrones().insertLastPatron('NuevoPatron',lista_piso.search_item(nombre_piso1).getPatrones().search_item(nombre_patron1).getCadena(),lista_piso.search_item(nombre_piso1).getPatrones().search_item(nombre_patron1).getCasillas())
-        posicion1 = lista_piso.search_item(nombre_piso1).getPatrones().search_item('NuevoPatron').getCasillas()
-        posicion2 = lista_piso.search_item(nombre_piso1).getPatrones().search_item(nombre_patron2).getCasillas()
         if int(lista_piso.search_item(nombre_piso1).getFilas()) > 1:
             if costoF < costoS:
                 Modo1 = True
@@ -276,13 +279,36 @@ class Matriz():
         sleep(2)
         if Modo2 == True:
             posicion1.showCasillas()
+            lista_piso.search_item(nombre_piso1).getPatrones().search_item('NuevoPatron').setCadena(lista_piso.search_item(nombre_piso1).getPatrones().search_item(nombre_patron2).getCadena())
             print('---Se gasto: ' + str(costoS*contadorCostoS1) + ' de slide')
             print('---Se gasto: ' + str(costoF*contadorCostoF1) + ' de flip')
-            print('---El total es de: '+str(int(costoF*contadorCostoF1)+int(costoS*contadorCostoS1)))
+            print('---El total es de: '+str(int(costoF*contadorCostoF1)+int(costoS*contadorCostoS1))+ ' Quetzales')
             print ("------------------------------------------------------")
         elif Modo1 == True:
             posicion1.showCasillas()
+            lista_piso.search_item(nombre_piso1).getPatrones().search_item('NuevoPatron').setCadena(lista_piso.search_item(nombre_piso1).getPatrones().search_item(nombre_patron2).getCadena())
             print('---Se gasto: 0 de slide')
             print('---Se gasto: ' + str(costoF*contadorCostoF2) + ' de flip')
-            print('---El total es de: ' + str(costoF*contadorCostoF2))
+            print('---El total es de: ' + str(costoF*contadorCostoF2)+ ' Quetzales')
             print ("------------------------------------------------------")
+
+def llenar_matriz1(cadena,columnas,filas):
+        lista_casillas = ListaCasillas()
+        count = 0
+        columnas = int(columnas)
+        count_fila = 1
+        count_columnas = 0
+        for n in cadena:
+
+            if count_columnas >= columnas:
+                count_fila +=1
+                count_columnas = 1
+            else:
+                count_columnas +=1
+
+            
+            lista_casillas.insertLastCasilla(n,count_columnas,count_fila,columnas,filas)
+            
+            count += 1
+            
+        return lista_casillas

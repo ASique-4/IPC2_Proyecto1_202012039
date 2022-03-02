@@ -34,5 +34,4 @@ class ListaPisos():
             if n.nombre == x:
                 return n
             n = n.siguiente
-        print("Piso no encontrado")
         return False

@@ -1,0 +1,14 @@
+graph G { 
+ ranksep = 0; 
+ nodesep = 0;
+ rankdir = "TB";
+11[label="",color = "White",fillcolor="Black",style="filled",shape="box"];
+21[label="",color = "White",fillcolor="Black",style="filled",shape="box"];
+31[label="",color = "White",fillcolor="Black",style="filled",shape="box"];
+41[label="",color = "Black",fillcolor="White",style="filled",shape="box"];
+51[label="",color = "Black",fillcolor="White",style="filled",shape="box"];
+11--21;
+21--31;
+31--41;
+41--51;
+    { rank=same; 11 21 31 41 51     }; }
