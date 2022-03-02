@@ -39,5 +39,5 @@ class ListaPisos():
             if n.nombre == x:
                 return n
             n = n.siguiente
-        print("item not found")
+        print("Piso no encontrado")
         return False

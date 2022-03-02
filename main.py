@@ -1,3 +1,5 @@
+
+from time import sleep
 from Matriz import Matriz
 from ListaDeCasillas import ListaCasillas
 from ListaDePatrones import ListaPatrones
@@ -6,8 +8,11 @@ import PySimpleGUI as sg
 import xml.etree.ElementTree as ET
 
 lista_pisos = ListaPisos()
-datos_glob = 'pisos.xml'
+datos_glob = ''
+Archivo_Cargado = False
+print ("------------------------------------------------------")
 
+        
 def elementTree(ruta):
 
     tree = ET.parse(ruta)
@@ -21,14 +26,14 @@ def elementTree(ruta):
                 lista_patrones = ListaPatrones()
                 for subsubchild in subchild:
                     if subsubchild.tag == 'patron':
-                        casillas = llenar_matriz(subsubchild.text,r[1].text)
+                        casillas = llenar_matriz(subsubchild.text,r[1].text,r[0].text)
                         lista_patrones.insertLastPatron(subsubchild.attrib['codigo'], subsubchild.text,casillas)
                         count3 += 1
         lista_pisos.insertLast(r.attrib['nombre'], r[0].text, r[1].text, r[2].text, r[3].text,lista_patrones) 
     
 
 
-def llenar_matriz(cadena,columnas):
+def llenar_matriz(cadena,columnas,filas):
     lista_casillas = ListaCasillas()
     count = 0
     columnas = int(columnas)
@@ -43,7 +48,7 @@ def llenar_matriz(cadena,columnas):
             count_columnas +=1
 
         
-        lista_casillas.insertLastCasilla(n,count_columnas,count_fila)
+        lista_casillas.insertLastCasilla(n,count_columnas,count_fila,columnas,filas)
          
         count += 1
         
@@ -97,8 +102,7 @@ while not salir:
  
     print ("1. Cargar Archivo")
     print ("2. Analizar pisos")
-    print ("3. Hacer grafico")
-    print ("4. Salir")
+    print ("3. Salir")
      
     print ("Elige una opcion")
  
@@ -121,25 +125,30 @@ while not salir:
             print('No escogiste ningún archivo .xml')
         else:
             print('Escogiste el archivo: ',Datos[0])
+            Archivo_Cargado = True
             datos_glob = Datos[0]
         window.close()
         elementTree(datos_glob)
+        
         print ("------------------------------------------------------")
     elif opcion == 2:
         print ("------------------------------------------------------")
+        if Archivo_Cargado == True:
+            lista_casillas = ListaCasillas()
         
-        
-        piso = pedirPiso()
-        patron = pedirPatron(piso.nombre)
-        Matriz.cambiar_matriz(str(piso.nombre),str(piso.getPatrones().primero.getCod()),str(patron.getCod()),lista_pisos)
-        #lista_pisos.search_item('ejemplo01').getPatrones().search_item('cod11').getCasillas().search_item(4,1)
-        #lista_pisos.showPisos()
+            piso = pedirPiso()
+            patron = pedirPatron(piso.nombre)
+            print ("Calculando la mejor manera de ordenar...")
+            sleep(3)
+            Matriz.cambiar_matriz(str(piso.nombre),str(piso.getPatrones().primero.getCod()),str(patron.getCod()),lista_pisos)
+            print ("Convirtiendo a PDF...")
+            sleep(3)
+            lista_pisos.search_item(str(piso.nombre)).getPatrones().search_item(str(patron.getCod())).getCasillas().imprimirEnPdf()
+
+        else:
+            print('---No has cargado el archivo')
         print ("------------------------------------------------------")
     elif opcion == 3:
-        print ("------------------------------------------------------")
-        
-        print ("------------------------------------------------------")
-    elif opcion == 4:
         salir = True
     else:
         print ("Introduce un numero entre 1 y 3")

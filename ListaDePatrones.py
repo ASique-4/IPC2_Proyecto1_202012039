@@ -1,3 +1,5 @@
+import os
+import webbrowser
 from Casilla import Casilla
 from Patron import Patron
 class ListaPatrones():
@@ -31,10 +33,11 @@ class ListaPatrones():
         tmp = self.primero
         print ("------------------------------------------------------")
         while tmp is not None:
-            print('- Codigo: ', tmp.getCod(), '- Cadena: ', tmp.getCadena(), tmp.getCasillas().showCasillas())
+            print('- Codigo: ', tmp.getCod(), '- Cadena: ', tmp.getCadena())
             print ("------------------------------------------------------")
             tmp = tmp.getSiguiente()
         
+    
 
     def search_item(self, x):
         if self.primero is None:
@@ -44,5 +47,5 @@ class ListaPatrones():
             if n.getCod() == x:
                 return n
             n = n.siguiente
-        print("item not found")
+        print("Patron no encontrado")
         return False
