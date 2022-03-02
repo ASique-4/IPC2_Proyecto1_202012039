@@ -1,15 +1,11 @@
-import os
-import webbrowser
-from Casilla import Casilla
+
 from Patron import Patron
 class ListaPatrones():
     def __init__(self):
         self.primero : Patron = None #cabecera
         self.ultimo = None # final
         self.size = 0
-        #self.codigo = codigo
-        #self.patron = Patron().getSiguiente()
-    
+
     
     def insertLastPatron(self, cod,cadena,casillas):
         nuevo_Patron = Patron(cod,cadena)
@@ -19,11 +15,6 @@ class ListaPatrones():
             self.primero = nuevo_Patron
             self.ultimo = nuevo_Patron
         else:
-            # Inserción con un solo apuntador "primero"
-            '''tmp = self.primero
-            while tmp.siguiente is not None:
-                tmp = tmp.getSiguiente()
-            tmp.setSiguiente(nuevo_Patron) '''
             
             # Inercion con apuntador "primero"  y "ultimo"
             self.ultimo.setSiguiente(nuevo_Patron)

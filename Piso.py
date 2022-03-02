@@ -10,7 +10,6 @@ class Piso():
         self.slide_costo = s
         self.siguiente = None
         self.patrones = ListaPatrones()
-        #self.casillas = Matriz() #Matriz
         
     def getPatrones(self):
         return self.patrones

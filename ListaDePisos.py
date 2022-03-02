@@ -14,12 +14,7 @@ class ListaPisos():
             self.primero = nuevo_Piso
             self.ultimo = nuevo_Piso
         else:
-            # Inserción con un solo apuntador "primero"
-            '''tmp = self.primero
-            while tmp.siguiente is not None:
-                tmp = tmp.getSiguiente()
-            tmp.setSiguiente(nuevo_Piso) '''
-            
+
             # Inercion con apuntador "primero"  y "ultimo"
             self.ultimo.setSiguiente(nuevo_Piso)
             self.ultimo = nuevo_Piso

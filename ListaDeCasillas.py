@@ -1,4 +1,3 @@
-from itertools import count
 import os
 import webbrowser
 from Casilla import Casilla
@@ -7,8 +6,7 @@ class ListaCasillas():
         self.primero : Casilla = None #cabecera
         self.ultimo = None # final
         self.size = 0
-        #self.codigo = codigo
-        #self.Casilla = Casilla().getSiguiente()
+
     
     
     def insertLastCasilla(self, color,columna,fila,columnas,filas):
@@ -18,12 +16,7 @@ class ListaCasillas():
             self.primero = nuevo_Casilla
             self.ultimo = nuevo_Casilla
         else:
-            # Inserción con un solo apuntador "primero"
-            '''tmp = self.primero
-            while tmp.siguiente is not None:
-                tmp = tmp.getSiguiente()
-            tmp.setSiguiente(nuevo_Casilla) '''
-            
+
             # Inercion con apuntador "primero"  y "ultimo"
             self.ultimo.setSiguiente(nuevo_Casilla)
             self.ultimo = nuevo_Casilla
@@ -84,7 +77,6 @@ class ListaCasillas():
             if nodoCasillas.siguiente is None:
                 strRank += str(nodoCasillas.getSColumnas()).strip()+str(nodoCasillas.getFilas()).strip() + ' '
             nodoCasillas=nodoCasillas.siguiente
-        ##-------------Creacion de texto plato y conversion
         
         strRank += '    }; '
         strGrafica += strRank
