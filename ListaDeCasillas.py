@@ -36,7 +36,8 @@ class ListaCasillas():
         while nodoCasillas is not None:
             if nodoCasillas.getcolor() == 'B':
                 color_casilla = 'Black'
-                color_casilla2 = 'White'
+                color_casilla2 = 'Black'
+                
             if nodoCasillas.getcolor() == 'W':
                 color_casilla = 'White'
                 color_casilla2 = 'Black'
@@ -62,16 +63,16 @@ class ListaCasillas():
                         else:
                             count_columnas += 1
                         if int(count_fila+1) <= int(nodoCasillas.getFilas()):
-                            strGrafica += '{}--{};\n'.format(str(count_columnas)+str(count_fila),str(count_columnas)+str(count_fila+1))
+                            strGrafica += '{}--{}[color = "White"];\n'.format(str(count_columnas)+str(count_fila),str(count_columnas)+str(count_fila+1))
                             strRank += str(count_columnas)+str(count_fila) + ' '
                         if count_columnas+1 <= int(nodoCasillas.getSColumnas()):
-                            strGrafica += '{}--{};\n'.format(str(count_columnas)+str(count_fila),str(count_columnas+1)+str(count_fila))
+                            strGrafica += '{}--{}[color = "White"];\n'.format(str(count_columnas)+str(count_fila),str(count_columnas+1)+str(count_fila))
                             strRank += str(count_columnas)+str(count_fila) + ' '
                     else:
                         if count_columnas <= int(nodoCasillas.getSColumnas()):
                             count_columnas += 1
                         if count_columnas+1 <= int(nodoCasillas.getSColumnas()):
-                            strGrafica += '{}--{};\n'.format(str(count_columnas)+str(count_fila),str(count_columnas+1)+str(count_fila))
+                            strGrafica += '{}--{}[color = "White"];\n'.format(str(count_columnas)+str(count_fila),str(count_columnas+1)+str(count_fila))
                             strRank += str(count_columnas)+str(count_fila) + ' '
                     count += 1
             if nodoCasillas.siguiente is None:
