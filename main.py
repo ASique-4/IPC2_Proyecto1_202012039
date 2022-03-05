@@ -1,6 +1,5 @@
 
 from time import sleep
-from typing import List
 from Matriz import Matriz
 from ListaDeCasillas import ListaCasillas
 from ListaDePatrones import ListaPatrones
@@ -161,4 +160,4 @@ while not salir:
     else:
         print ("Introduce un numero entre 1 y 3")
 
-print ("Fin")
+print ("Hasta luego :D")
