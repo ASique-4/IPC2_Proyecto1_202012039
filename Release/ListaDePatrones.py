@@ -10,28 +10,28 @@ class ListaPatrones():
         if self.size > 1:
             while True:
                 actual = self.primero
-                i = None  # anterior
-                j = self.primero.siguiente  # siguiente
+                a = None  # anterior
+                b = self.primero.siguiente  # siguiente
                 cambio = False
-                while j != None:
+                while b != None:
                     if ord(actual.cod[0])-96 > ord(j.cod[0])-96:
                         cambio = True
-                        if i != None:
-                            tmp = j.siguiente
-                            i.siguiente = j
-                            j.siguiente = actual
+                        if a != None:
+                            tmp = b.siguiente
+                            a.siguiente = b
+                            b.siguiente = actual
                             actual.siguiente = tmp
                         else:
-                            tmp2 = j.siguiente
-                            self.primero = j
-                            j.siguiente = actual
+                            tmp2 = b.siguiente
+                            self.primero = b
+                            b.siguiente = actual
                             actual.siguiente = tmp2
-                        i = j
-                        j = actual.siguiente
+                        a = b
+                        b = actual.siguiente
                     else:
-                        i = actual
-                        actual = j
-                        j = j.siguiente
+                        a = actual
+                        actual = b
+                        b = b.siguiente
                 if not cambio:
                     break
     
