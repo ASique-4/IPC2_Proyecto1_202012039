@@ -14,7 +14,7 @@ class ListaPatrones():
                 b = self.primero.siguiente  # siguiente
                 cambio = False
                 while b != None:
-                    if ord(actual.cod[0])-96 > ord(j.cod[0])-96:
+                    if ord(actual.cod[0])-96 > ord(b.cod[0])-96:
                         cambio = True
                         if a != None:
                             tmp = b.siguiente
