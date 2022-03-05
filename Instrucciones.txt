@@ -1,0 +1,6 @@
+Se hizo un slide en el azulejo en la fila 1 y columna 3 con el azulejo en el azulejo en la fila 1 y columna 4 
+Se hizo un flip en el azulejo en la fila 2 y columna 2 
+Se hizo un slide en el azulejo en la fila 2 y columna 3 con el azulejo en el azulejo en la fila 2 y columna 4 
+---Se gasto: 2 de slide 
+---Se gasto: 1 de flip 
+---El total es de: 3 Quetzales 
