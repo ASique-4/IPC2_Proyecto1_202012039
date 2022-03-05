@@ -6,6 +6,34 @@ class ListaPatrones():
         self.ultimo = None # final
         self.size = 0
 
+    def BubbleSort(self):
+        if self.size > 1:
+            while True:
+                actual = self.primero
+                i = None  # anterior
+                j = self.primero.siguiente  # siguiente
+                cambio = False
+                while j != None:
+                    if ord(actual.cod[0])-96 > ord(j.cod[0])-96:
+                        cambio = True
+                        if i != None:
+                            tmp = j.siguiente
+                            i.siguiente = j
+                            j.siguiente = actual
+                            actual.siguiente = tmp
+                        else:
+                            tmp2 = j.siguiente
+                            self.primero = j
+                            j.siguiente = actual
+                            actual.siguiente = tmp2
+                        i = j
+                        j = actual.siguiente
+                    else:
+                        i = actual
+                        actual = j
+                        j = j.siguiente
+                if not cambio:
+                    break
     
     def insertLastPatron(self, cod,cadena,casillas):
         nuevo_Patron = Patron(cod,cadena)
@@ -25,8 +53,9 @@ class ListaPatrones():
         print ("------------------------------------------------------")
         while tmp is not None:
             print('- Codigo: ', tmp.getCod(), '- Cadena: ', tmp.getCadena())
-            print ("------------------------------------------------------")
+            
             tmp = tmp.getSiguiente()
+        print ("------------------------------------------------------")
         
     
 

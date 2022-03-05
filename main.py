@@ -1,5 +1,6 @@
 
 from time import sleep
+from typing import List
 from Matriz import Matriz
 from ListaDeCasillas import ListaCasillas
 from ListaDePatrones import ListaPatrones
@@ -151,11 +152,10 @@ while not salir:
             print('---No has cargado el archivo')
         print ("------------------------------------------------------")
     elif opcion == 3:
-        print ("------------------------------------------------------")
         lista_pisos.BubbleSort()
         print ("------------------------------------------------------")
-        lista_pisos.showPisos()
-        print ("------------------------------------------------------")
+        lista_pisos.showPisosOrdenados()
+
     elif opcion == 4:
         salir = True
     else:

@@ -6,12 +6,12 @@
     <F> 1 </F>
     <S> 1 </S>
     <patrones>
-        <patron codigo="cod11">WBWBWWWB</patron>
-        <patron codigo="cod12">BWBWWWWW</patron>
-        <patron codigo="cod13">WWWBBBBW</patron>
-        <patron codigo="cod14">BWBWBWBW</patron>
-        <patron codigo="cod15">WBBWWBBW</patron>
-        <patron codigo="cod16">BWWBBWBW</patron>
+        <patron codigo="zcod11">WBWBWWWB</patron>
+        <patron codigo="dcod12">BWBWWWWW</patron>
+        <patron codigo="acod13">WWWBBBBW</patron>
+        <patron codigo="hcod14">BWBWBWBW</patron>
+        <patron codigo="ecod15">WBBWWBBW</patron>
+        <patron codigo="vcod16">BWWBBWBW</patron>
     </patrones>
     </piso>
     <piso nombre="ejemplo02">
@@ -20,8 +20,8 @@
     <F> 1 </F>
     <S> 1 </S>
     <patrones>
-    <patron codigo="cod21">WBBBWBWWW</patron>
-    <patron codigo="cod22">WWWWBWWWB</patron>
+    <patron codigo="bcod21">WBBBWBWWW</patron>
+    <patron codigo="acod22">WWWWBWWWB</patron>
     </patrones>
     </piso>
     <piso nombre="ejemplo03">
@@ -30,8 +30,8 @@
     <F> 1000 </F>
     <S> 1 </S>
     <patrones>
-    <patron codigo="cod31">WBBBB</patron>
-    <patron codigo="cod32">BBBWW</patron>
+    <patron codigo="zcod31">WBBBB</patron>
+    <patron codigo="ecod32">BBBWW</patron>
     </patrones>
     </piso>
 </pisosArtesanales>

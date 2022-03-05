@@ -53,7 +53,16 @@ class ListaPisos():
         while tmp is not None:
             print('Nombre: ', tmp.nombre, '- Filas: ', tmp.getFilas(), '- Columnas: ', tmp.getColumnas(), '- Costo Flip: ', tmp.getCostoF(), '- Costo Slide: ', tmp.getCostoS())
             tmp = tmp.getSiguiente()
-    
+
+    def showPisosOrdenados(self):
+        tmp = self.primero
+        while tmp is not None:
+            tmp.getPatrones().BubbleSort() 
+            
+            print('Nombre: ', tmp.nombre )
+            tmp.getPatrones().showPatrones()
+            tmp = tmp.getSiguiente()
+
     def search_item(self, x):
         if self.primero is None:
             return
