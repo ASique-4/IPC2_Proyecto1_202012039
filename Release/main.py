@@ -161,4 +161,4 @@ while not salir:
     else:
         print ("Introduce un numero entre 1 y 3")
 
-print ("Fin")
+print ("Nos vemos :D")
