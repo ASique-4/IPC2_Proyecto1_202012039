@@ -19,6 +19,34 @@ class ListaPisos():
             self.ultimo.setSiguiente(nuevo_Piso)
             self.ultimo = nuevo_Piso
 
+    def BubbleSort(self):
+        if self.size > 1:
+            while True:
+                actual = self.primero
+                i = None  # anterior
+                j = self.primero.siguiente  # siguiente
+                cambio = False
+                while j != None:
+                    if ord(actual.nombre[0])-96 > ord(j.nombre[0])-96:
+                        cambio = True
+                        if i != None:
+                            tmp = j.siguiente
+                            i.siguiente = j
+                            j.siguiente = actual
+                            actual.siguiente = tmp
+                        else:
+                            tmp2 = j.siguiente
+                            self.primero = j
+                            j.siguiente = actual
+                            actual.siguiente = tmp2
+                        i = j
+                        j = actual.siguiente
+                    else:
+                        i = actual
+                        actual = j
+                        j = j.siguiente
+                if not cambio:
+                    break
 
     def showPisos(self):
         tmp = self.primero

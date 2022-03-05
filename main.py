@@ -30,7 +30,6 @@ def elementTree(ruta):
                         casillas = llenar_matriz(subsubchild.text,r[1].text,r[0].text)
                         lista_patrones.insertLastPatron(subsubchild.attrib['codigo'], subsubchild.text,casillas)
                         count3 += 1
-        nombre = r.attrib['nombre']
         lista_pisos.insertLast(r.attrib['nombre'], r[0].text, r[1].text, r[2].text, r[3].text,lista_patrones) 
     
 def llenar_matriz(cadena,columnas,filas):
@@ -94,10 +93,10 @@ def pedirNumeroEntero():
             print('Error, introduce un numero entero')
      
     return num
- 
+
 salir = False
 opcion = 0
- 
+
 while not salir:
  
     print ("1. Cargar Archivo")
@@ -153,68 +152,13 @@ while not salir:
         print ("------------------------------------------------------")
     elif opcion == 3:
         print ("------------------------------------------------------")
-        tmp = lista_pisos.primero
-        while tmp is not None:
-            for n in tmp.nombre:
-                if n[0].lower() == 'a':
-                    lista_pisos.insert_at_start(tmp.nombre,tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'b':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'c':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'd':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'e':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'f':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'g':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'h':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'i':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'j':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'k':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'l':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'm':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'n':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'ñ':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'o':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'p':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'q':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'r':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 's':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 't':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'u':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'v':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'w':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'x':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'y':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-                if n[0].lower() == 'z':
-                    lista_pisos.insert_after_nombre(tmp.nombre,n[0],tmp.getFilas(),tmp.getColumnas(),tmp.getCostoF(),tmp.getCostoS(),tmp.getPatrones())
-            tmp = tmp.getSiguiente()
+        lista_pisos.BubbleSort()
+        print ("------------------------------------------------------")
+        lista_pisos.showPisos()
         print ("------------------------------------------------------")
     elif opcion == 4:
         salir = True
     else:
         print ("Introduce un numero entre 1 y 3")
- 
+
 print ("Fin")
