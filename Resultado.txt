@@ -1,0 +1,28 @@
+graph G { 
+ ranksep = 0; 
+ nodesep = 0;
+ rankdir = "TB";
+11[label="",color = "Black",fillcolor="White",style="filled",shape="box"];
+21[label="",color = "Black",fillcolor="Black",style="filled",shape="box"];
+31[label="",color = "Black",fillcolor="Black",style="filled",shape="box"];
+12[label="",color = "Black",fillcolor="Black",style="filled",shape="box"];
+22[label="",color = "Black",fillcolor="White",style="filled",shape="box"];
+32[label="",color = "Black",fillcolor="Black",style="filled",shape="box"];
+13[label="",color = "Black",fillcolor="White",style="filled",shape="box"];
+23[label="",color = "Black",fillcolor="White",style="filled",shape="box"];
+33[label="",color = "Black",fillcolor="White",style="filled",shape="box"];
+11--12[color = "White"];
+11--21[color = "White"];
+21--22[color = "White"];
+21--31[color = "White"];
+31--32[color = "White"];
+12--13[color = "White"];
+12--22[color = "White"];
+22--23[color = "White"];
+22--32[color = "White"];
+32--33[color = "White"];
+13--23[color = "White"];
+23--33[color = "White"];
+    { rank=same; 11 11 21 21 31     }; 
+    { rank=same; 12 12 22 22 32     }; 
+    { rank=same; 13 23 33     }; }
