@@ -11,7 +11,6 @@ class Matriz():
 
     def cambiar_matriz(nombre_piso1,nombre_patron1,nombre_patron2,listaPisos):
         texto = ''
-        texto2 = ''
         Modo1 = False 
         Modo2 = False
         lista_piso = listaPisos

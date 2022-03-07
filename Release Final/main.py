@@ -27,10 +27,10 @@ def elementTree(ruta):
                 lista_patrones = ListaPatrones()
                 for subsubchild in subchild:
                     if subsubchild.tag == 'patron':
-                        casillas = llenar_matriz(subsubchild.text,r[1].text,r[0].text)
-                        lista_patrones.insertLastPatron(subsubchild.attrib['codigo'], subsubchild.text,casillas)
+                        casillas = llenar_matriz(subsubchild.text.replace('\n','').strip(),r[1].text.replace('\n','').strip(),r[0].text.replace('\n','').strip())
+                        lista_patrones.insertLastPatron(subsubchild.attrib['codigo'], subsubchild.text.replace('\n','').strip(),casillas)
                         count3 += 1
-        lista_pisos.insertLast(r.attrib['nombre'], r[0].text, r[1].text, r[2].text, r[3].text,lista_patrones) 
+        lista_pisos.insertLast(r.attrib['nombre'], r[0].text.replace('\n','').strip(), r[1].text.replace('\n','').strip(), r[2].text.replace('\n','').strip(), r[3].text.replace('\n','').strip(),lista_patrones) 
     
 def llenar_matriz(cadena,columnas,filas):
     lista_casillas = ListaCasillas()

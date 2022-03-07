@@ -1,4 +1,4 @@
-from Matriz import Matriz
+
 from ListaDePatrones import ListaPatrones
 
 class Piso(): 
